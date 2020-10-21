@@ -35,10 +35,8 @@
   [self addSubview:_markerView];
   _markerViews = [[NSMutableArray alloc] init];
   
-  _markerImage = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationControl-Marker"
-                                                                                   ofType:@"png"]] retain];
-  _thumbImage = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationControl-Thumb"
-                                                                                  ofType:@"png"]] retain];
+  _markerImage = [[UIImage imageNamed:@"NavigationControl-Marker.png"] retain];
+  _thumbImage = [[UIImage imageNamed:@"NavigationControl-Thumb.png"] retain];
 }
 
 - (id) initWithFrame:(CGRect)frame {
@@ -294,8 +292,7 @@
     if (image) {
       _thumbImage = [image retain];
     } else {
-      _thumbImage = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationControl-Thumb"
-                                                                                      ofType:@"png"]] retain];
+      _thumbImage = [[UIImage imageNamed:@"NavigationControl-Thumb.png"] retain];
     }
     
     [self _reloadThumbImage:YES];
@@ -308,8 +305,7 @@
     if (image) {
       _markerImage = [image retain];
     } else {
-      _markerImage = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationControl-Marker"
-                                                                                       ofType:@"png"]] retain];
+      _markerImage = [[UIImage imageNamed:@"NavigationControl-Marker.png"] retain];
     }
     
     [self _reloadMarkerImages:YES onlyIndex:NSNotFound];

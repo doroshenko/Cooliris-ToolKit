@@ -92,8 +92,7 @@
 }
 
 - (void) _setImageWithName:(NSString*)name onView:(UIView*)view {
-  NSString* path = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];
-  UIImage* image = [[UIImage alloc] initWithContentsOfFile:path];
+  UIImage* image = [[UIImage imageNamed:name] retain];
   DCHECK([image CGImage]);
   if (_tintColor) {
     CGImageRef imageRef = CreateTintedImage([image CGImage], [_tintColor CGColor], NULL);
@@ -108,11 +107,11 @@
 }
 
 - (void) _updateImages {
-  [self _setImageWithName:@"OverlayView-Contents" onView:_centerView];
-  [self _setImageWithName:@"OverlayView-Arrow-Top" onView:_topView];
-  [self _setImageWithName:@"OverlayView-Arrow-Left" onView:_leftView];
-  [self _setImageWithName:@"OverlayView-Arrow-Right" onView:_rightView];
-  [self _setImageWithName:@"OverlayView-Arrow-Bottom" onView:_bottomView];
+  [self _setImageWithName:@"OverlayView-Contents.png" onView:_centerView];
+  [self _setImageWithName:@"OverlayView-Arrow-Top.png" onView:_topView];
+  [self _setImageWithName:@"OverlayView-Arrow-Left.png" onView:_leftView];
+  [self _setImageWithName:@"OverlayView-Arrow-Right.png" onView:_rightView];
+  [self _setImageWithName:@"OverlayView-Arrow-Bottom.png" onView:_bottomView];
 }
 
 - (id) initWithFrame:(CGRect)frame {
